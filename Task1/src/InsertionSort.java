@@ -1,6 +1,3 @@
-/**
- * Created by Boss on 23.11.2015.
- */
 public class InsertionSort {
 
     public static void main(String[] args) {
