@@ -33,11 +33,11 @@ public class Time {
 
         try (PrintWriter printWriter = new PrintWriter(file)) {
             for (threads = 1; threads <= 50; threads +=2 ) {
-                MatrixMultiplication MatrixMultiplication = new MatrixMultiplication(m1, m2, threads);
+                MatrixMultiplication matrixMultiplication = new MatrixMultiplication(m1, m2, threads);
                 long allTime = 0;
                 for (int j = 0; j < 10; j++) {
                     long beginTime = System.nanoTime();
-                    MatrixMultiplication.multiply();
+                    matrixMultiplication.multiply();
                     long endTime = System.nanoTime() - beginTime;
                     allTime += endTime;
                 }
