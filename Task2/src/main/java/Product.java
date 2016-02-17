@@ -15,7 +15,7 @@ public class Product {
 
     @Override
     public boolean equals(Object o) {
-        return ((o instanceof Product) && (((Product) o).getPrice() == price) && (((Product) o).getName() == name));
+        return ((o instanceof Product) && (((Product) o).getPrice() == price) && (((Product) o).getName().equals(name)));
     }
 
     public int getPrice() {
