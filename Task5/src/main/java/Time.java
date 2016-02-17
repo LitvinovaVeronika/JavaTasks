@@ -15,9 +15,9 @@ public class Time {
 
     public static void main(String[] args) {
         try {
-            measureTime(10, 15, new File("src/res1.txt"));
-            measureTime(100, 150, new File("src/res2.txt"));
-            measureTime(400, 500, new File("src/res3.txt"));
+            measureTime(20, 20, new File("src/20x20_Matrix.txt"));
+            measureTime(200, 200, new File("src/200x200_Matrix.txt"));
+            measureTime(600, 600, new File("src/600x600_Matrix.txt"));
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -32,18 +32,19 @@ public class Time {
         createRandom(m2);
 
         try (PrintWriter printWriter = new PrintWriter(file)) {
-            for (threads = 1; threads <= 500; threads += 50) {
+            for (threads = 1; threads <= 50; threads +=2 ) {
                 MatrixMultiplication MatrixMultiplication = new MatrixMultiplication(m1, m2, threads);
                 long allTime = 0;
-                for (int j = 0; j < 5; j++) {
-                    long beginTime = System.currentTimeMillis();
+                for (int j = 0; j < 10; j++) {
+                    long beginTime = System.nanoTime();
                     MatrixMultiplication.multiply();
-                    long endTime = System.currentTimeMillis() - beginTime;
+                    long endTime = System.nanoTime() - beginTime;
                     allTime += endTime;
                 }
-                printWriter.println(threads + "\t" + allTime / 5);
+                printWriter.println(threads + "     " + allTime / 10);
             }
             printWriter.close();
         }
     }
 }
+
